@@ -13,6 +13,7 @@ import AppActions from '../../actions/AppActions';
 import AppStore from '../../stores/AppStore';
 import Navbar from '../Navbar';
 import ContentPage from '../ContentPage';
+import LandingPage from '../LandingPage';
 import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
 
@@ -49,6 +50,12 @@ class App {
     if (page.type === 'notfound') {
       this.props.onPageNotFound();
       return React.createElement(NotFoundPage, page);
+    }
+
+    if (this.props.path === '/') {
+      return (
+        <LandingPage />
+      );
     }
 
     return (
