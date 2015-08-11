@@ -12,9 +12,9 @@ import Navbar from '../Navbar';
 
 class SignupPage extends React.Component {
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.refs.email);
+    console.log(React.findDOMNode(this.refs.email).value);
   }
 
   render() {
@@ -24,7 +24,7 @@ class SignupPage extends React.Component {
           <div className="container">
             <h1>Register</h1>
             <p>Create your account in tasks app</p>
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label for="user-email">Email address</label>
                 <input ref="email" type="email" className="form-control" id="user-email" placeholder="Email" />
