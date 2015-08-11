@@ -14,6 +14,7 @@ import AppStore from '../../stores/AppStore';
 import Navbar from '../Navbar';
 import ContentPage from '../ContentPage';
 import LandingPage from '../LandingPage';
+import SignupPage from '../SignupPage';
 import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
 
@@ -43,6 +44,20 @@ class App {
   }
 
   render() {
+    if (this.props.path === '/') {
+      this.props.onSetTitle('Tasks Manager');
+      return (
+        <LandingPage />
+      );
+    }
+
+    if (this.props.path === '/signup') {
+      this.props.onSetTitle('Tasks Manager');
+      return (
+        <SignupPage />
+      );
+    }
+
     var page = AppStore.getPage(this.props.path);
     invariant(page !== undefined, 'Failed to load page content.');
     this.props.onSetTitle(page.title);
@@ -51,42 +66,6 @@ class App {
       this.props.onPageNotFound();
       return React.createElement(NotFoundPage, page);
     }
-
-    if (this.props.path === '/') {
-      return (
-        <LandingPage />
-      );
-    }
-
-    return (
-      <div className="App">
-        <Navbar />
-        {
-          this.props.path === '/' ?
-          <div className="jumbotron">
-            <div className="container text-center">
-              <h1>Tasks</h1>
-              <p>Complex task management made easy</p>
-              <p><div className="btn btn-primary btn-lg" href="#" role="button">Try for free</div></p>
-            </div>
-          </div> :
-          <div className="container">
-            <h2>{page.title}</h2>
-          </div>
-        }
-        <ContentPage className="container" {...page} />
-        <div className="navbar-footer">
-          <div className="container">
-            <p className="text-muted">
-              <span>© Your Company</span>
-              <span><a href="/">Home</a></span>
-              <span><a href="/privacy">Privacy</a></span>
-              <span>{'Viewport: ' + this.props.viewport.width + 'x' + this.props.viewport.height}</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    );
   }
 
   handlePopState(event) {

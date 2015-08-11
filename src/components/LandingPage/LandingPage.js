@@ -20,7 +20,9 @@ class LandingPage {
           <div className="container text-center">
             <h1>Tasks</h1>
             <p>Complex task management made easy</p>
-            <p><div className="btn btn-primary btn-lg" href="#" role="button">Try for free</div></p>
+            <div className="container">
+              <a className="btn btn-primary btn-lg" href="/signup" role="button">Try for free</a>
+            </div>
           </div>
         </div>
       </div>
