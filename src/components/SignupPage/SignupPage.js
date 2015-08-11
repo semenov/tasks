@@ -26,11 +26,11 @@ class SignupPage extends React.Component {
             <p>Create your account in tasks app</p>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label for="user-email">Email address</label>
-                <input ref="email" type="email" className="form-control" id="user-email" placeholder="Email" />
+                <label htmlFor="user-email">Email address</label>
+                <input ref="email" type="text" className="form-control" id="user-email" placeholder="Email" />
               </div>
               <div className="form-group">
-                <label for="user-password">Password</label>
+                <label htmlFor="user-password">Password</label>
                 <input type="password" className="form-control" id="user-password" placeholder="Password" />
               </div>
               <button type="submit" className="btn btn-default">Sign up</button>

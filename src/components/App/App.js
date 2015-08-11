@@ -15,6 +15,8 @@ import Navbar from '../Navbar';
 import ContentPage from '../ContentPage';
 import LandingPage from '../LandingPage';
 import SignupPage from '../SignupPage';
+import TasksPage from '../TasksPage';
+import TaskPage from '../TaskPage';
 import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
 
@@ -55,6 +57,20 @@ class App {
       this.props.onSetTitle('Tasks Manager');
       return (
         <SignupPage />
+      );
+    }
+
+    if (this.props.path === '/tasks') {
+      this.props.onSetTitle('Tasks Manager');
+      return (
+        <TasksPage />
+      );
+    }
+
+    if (this.props.path === '/tasks/42') {
+      this.props.onSetTitle('Tasks Manager');
+      return (
+        <TaskPage />
       );
     }
 

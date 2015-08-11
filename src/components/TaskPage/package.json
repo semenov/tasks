@@ -1,0 +1,6 @@
+{
+  "name": "TaskPage",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TaskPage.js"
+}
